@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: customer-service
+
+server:
+  port: 8001
+  error:
+    include-stacktrace: always
+    include-exception: true
+    include-message: always
