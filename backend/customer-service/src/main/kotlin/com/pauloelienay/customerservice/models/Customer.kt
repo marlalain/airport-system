@@ -10,6 +10,10 @@ data class Customer(
 		cart.add(ticket)
 	}
 
+	fun checkout() {
+		cart.forEach(Ticket::buy)
+	}
+
 	operator fun plusAssign(ticket: Ticket) {
 		addToCart(ticket)
 	}

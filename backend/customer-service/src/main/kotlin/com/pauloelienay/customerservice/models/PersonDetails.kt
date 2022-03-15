@@ -15,7 +15,7 @@ data class PersonDetails(
 		get() {
 			birthDate?.let {
 				val today = LocalDate.now()
-				return today.year - it.year - if (it.dayOfYear >= today.dayOfYear) 1 else 0
+				return today.year - it.year - if (it.isBefore(today)) 1 else 0
 			}
 
 			return null
