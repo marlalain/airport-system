@@ -1,6 +1,19 @@
 spring:
   application:
     name: customer-service
+  kafka:
+    bootstrap-servers:
+      - "localhost:9092"
+    consumer:
+      group-id: customers
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+    template:
+      default-topic: customers
 
 server:
   port: 8001
@@ -8,3 +21,7 @@ server:
     include-stacktrace: always
     include-exception: true
     include-message: always
+
+logging:
+  level:
+    org.springframework.web: INFO
